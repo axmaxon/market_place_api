@@ -1,4 +1,9 @@
 class Api::V1::TokensController < ApplicationController
+  # По email извлекает юзера; используя метод authenticate
+  # (ставший доступным с установкой bcrypt), сравнивает хэши паролей
+  # из params и из поля password_digest;
+  # Если пользователь аутентифицирован - возвращается токен аутентификации
+  # сгенерированный классом JsonWebToken
   def create
     @user = User.find_by_email(user_params[:email])
 

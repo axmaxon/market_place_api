@@ -1,3 +1,5 @@
+# Кодирует и декодирует полезную нагрузку (payload) для токена аутентификации
+# (имеющего JWT стандарт), при кодировании добавляет время истечения срока действия
 class JsonWebToken
   SECRET_KEY = Rails.application.secrets.secret_key_base.to_s
 
@@ -8,6 +10,9 @@ class JsonWebToken
 
   def self.decode(token)
     decoded = JWT.decode(token, SECRET_KEY).first
-    HashWithIndifferentAccess.new decoded
+
+    # Позволяет использовать для доступа к значениям хэша ключи и в строковом и в
+    # символьном виде
+    HashWithIndifferentAccess.new(decoded)
   end
 end
