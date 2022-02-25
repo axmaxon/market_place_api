@@ -6,7 +6,7 @@ class Api::V1::ProductsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should show products" do
-    get api_v1_products_url(), as: :json
+    get api_v1_products_url, as: :json
     assert_response :success
   end
 
