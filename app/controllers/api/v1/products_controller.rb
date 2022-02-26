@@ -4,7 +4,6 @@ class Api::V1::ProductsController < ApplicationController
   before_action :check_login, only: :create
   before_action :check_owner, only: %i[update destroy]
 
-
   def index
     render json: Product.all
   end
