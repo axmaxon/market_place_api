@@ -10,6 +10,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'pg'
 gem 'bcrypt', '~> 3.1', '>= 3.1.12'
 gem 'jwt', '~> 2.3'
+gem 'faker', '~> 2.19'
 
 # gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
@@ -25,3 +26,4 @@ group :development do
   gem 'listen', '~> 3.3'
   gem 'spring'
 end
+
