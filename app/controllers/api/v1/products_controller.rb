@@ -10,7 +10,10 @@ class Api::V1::ProductsController < ApplicationController
   end
 
   def show
-    render json: ProductSerializer.new(@product).serializable_hash
+    # Опции для включения атрибутов пользователя, которому принадлежит продукт
+    # (требуется также указание связи в сериализаторе)
+    options = { include: [:user] }
+    render json: ProductSerializer.new(@product, options).serializable_hash
   end
 
   # Создаёт новый инстанс продукта [в ассоциации] с юзером
