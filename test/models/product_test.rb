@@ -22,4 +22,10 @@ class ProductTest < ActiveSupport::TestCase
   test "should filter products by price lower and sort them" do
     assert_equal [products(:another_tv)], Product.below_or_equal_to_price(200).sort
   end
+
+  test "should sort product by most recent" do
+    # touch (без аргументов) обновит поле продукта update_at текущим временем
+    products(:two).touch
+    assert_equal [products(:one), products(:another_tv), products(:two)], Product.recent.to_a
+  end
 end
