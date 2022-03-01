@@ -16,8 +16,8 @@ class Api::V1::ProductsController < ApplicationController
     render json: ProductSerializer.new(@product, options).serializable_hash
   end
 
-  # Создаёт новый инстанс продукта [в ассоциации] с юзером
   def create
+    # Создаётся новый инстанс продукта [в ассоциации] с юзером
     product = current_user.products.build(product_params)
 
     if product.save
