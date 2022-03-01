@@ -8,4 +8,18 @@ class Product < ApplicationRecord
   scope :above_or_equal_to_price, lambda { |price| where('price >= ?', price) }
   scope :below_or_equal_to_price, lambda { |price| where('price <= ?', price) }
   scope :recent, lambda { order(:updated_at) }
+
+  # Выполняет конкретный запрос в соответствии с полученными параметрами,
+  # возвращает продукты в виде объекта ActiveRecord::Relation, чтобы можно было добавить
+  # в цепочку какие-то методы, при необходимости.(Используется в Product#index)
+  def self.search(params = {})
+    params[:product_ids].present? ? products = Product.where(id: params[:product_ids]) : products = Product.all
+
+    products = products.filter_by_title(params[:keyword]) if params[:keyword]
+    products = products.above_or_equal_to_price(params[:min_price].to_f) if params[:min_price]
+    products = products.below_or_equal_to_price(params[:max_price].to_f) if params[:max_price]
+    products = products.recent if params[:recent]
+
+    products
+  end
 end
