@@ -4,6 +4,7 @@ class User < ApplicationRecord
   validates :password_digest, presence: true
 
   has_many :products, dependent: :destroy
+  has_many :orders, dependent: :destroy
 
   # Шифрует пароли путем хеширования - генерирует 'password_digest'
   # из атрибута 'password', указанного при создании юзера
