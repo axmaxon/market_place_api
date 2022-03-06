@@ -5,15 +5,18 @@ one:
   price: 9889.99
   published: false
   user: one
+  quantity: 5
 
 two:
   title: Azos Zeeenboook
   price: 559.99
   published: false
   user: two
+  quantity: 5
 
 another_tv:
   title: Cheap TV
   price: 99.99
   published: false
   user: two
+  quantity: 5
