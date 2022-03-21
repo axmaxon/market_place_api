@@ -12,10 +12,10 @@ gem 'bcrypt', '~> 3.1', '>= 3.1.12'
 gem 'jwt', '~> 2.3'
 gem 'faker', '~> 2.19'
 gem 'jsonapi-serializer', '~> 2.2'
+gem 'kaminari', '~> 1.2'
 
 # gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
-# gem 'bcrypt', '~> 3.1.7'
 # gem 'image_processing', '~> 1.2'
 # gem 'rack-cors'
 

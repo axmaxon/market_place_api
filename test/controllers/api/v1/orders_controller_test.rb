@@ -3,7 +3,6 @@ require "test_helper"
 class Api::V1::OrdersControllerTest < ActionDispatch::IntegrationTest
   setup do
     @order = orders(:one)
-    # @order_params = { order: { product_ids: [products(:one).id, products(:two).id], total: 50 } }
     @order_params = { order: { product_ids_and_quantities: [
           { product_id: products(:one).id, quantity: 2 },
           { product_id: products(:two).id, quantity: 3 }
