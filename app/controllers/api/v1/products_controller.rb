@@ -20,7 +20,7 @@ class Api::V1::ProductsController < ApplicationController
       }
     }
 
-    render json: ProductSerializer.new(@products, options).serializable_hash.to_json
+    render json: ProductSerializer.new(@products, options).serializable_hash
   end
 
   def show
