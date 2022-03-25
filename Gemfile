@@ -26,5 +26,6 @@ end
 group :development do
   gem 'listen', '~> 3.3'
   gem 'spring'
+  gem 'bullet'
 end
 
